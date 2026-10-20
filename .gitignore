@@ -1,0 +1,39 @@
+# JetBrains IDE（IntelliJ IDEA / PyCharm 等）本地配置，勿提交
+# workspace.xml、dataSources.xml、vcs.xml 等均在此目录
+.idea/
+
+web/node_modules
+web/dist
+web/.DS_Store
+web/*.local
+web/*.tsbuildinfo
+
+# serve（Python / FastAPI / MongoDB 本地配置）
+# Local configuration; only the sanitized backend template is public.
+serve/.env*
+!serve/.env.example
+web/.env
+serve/.venv/
+serve/venv/
+serve/**/__pycache__/
+serve/**/*.py[cod]
+serve/.pytest_cache/
+serve/.mypy_cache/
+serve/.ruff_cache/
+serve/htmlcov/
+serve/.coverage*
+serve/*.egg-info/
+serve/dist/
+serve/build/
+serve/.eggs/
+
+# Credentials, runtime logs and database exports
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.sql
+*.dump
+*.bak
+backups/

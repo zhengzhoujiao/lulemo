@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">噜了么 · 记录日常，找回自己的节奏</title>
+  <desc id="desc">男性健康自我管理工具，将每日打卡、趣味抛币与社区陪伴连在一起。右侧是使用手机记录日常的卡通简笔成年男性，插画为概念展示。</desc>
+  <defs>
+    <clipPath id="canvas"><rect width="1200" height="480" rx="28"/></clipPath>
+  </defs>
+  <g clip-path="url(#canvas)">
+    <rect width="1200" height="480" fill="#f1eef9"/>
+    <path d="M732 0H1200V480H872C799 395 708 279 732 0Z" fill="#e2daf5"/>
+    <circle cx="1063" cy="136" r="180" fill="#d1c4ed"/>
+    <g id="title-block" font-family="'Microsoft YaHei','Segoe UI','PingFang SC',sans-serif">
+      <text x="64" y="64" font-size="21" font-weight="600" letter-spacing="3" fill="#6c6086">LULEMO / 男性健康自我管理</text>
+      <text x="58" y="179" font-size="100" font-weight="800" fill="#29213c">噜了么<tspan dx="20" font-size="30" font-weight="500" fill="#807194">lulemo</tspan></text>
+      <text x="64" y="249" font-size="38" font-weight="650" fill="#29213c">记录日常，</text>
+      <text x="64" y="301" font-size="38" font-weight="650" fill="#29213c">找回自己的节奏。</text>
+      <text x="64" y="348" font-size="22" fill="#675c79">从一次打卡，到一群人的日常陪伴。</text>
+      <g id="daily-rhythm" transform="translate(64 396)" font-size="22" font-weight="600">
+        <circle cx="12" cy="0" r="12" fill="#16a34a"/>
+        <path d="m6 0 4 4 8-9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="36" y="8" fill="#29213c">记录</text>
+        <path d="M102 0h28m-6-6 6 6-6 6" fill="none" stroke="#a89abf" stroke-width="2"/>
+        <text x="148" y="8" fill="#29213c">互动</text>
+        <path d="M214 0h28m-6-6 6 6-6 6" fill="none" stroke="#a89abf" stroke-width="2"/>
+        <text x="260" y="8" fill="#29213c">同行</text>
+      </g>
+    </g>
+    <g id="check-in-motif" transform="translate(733 99) rotate(-9)">
+      <rect width="108" height="116" rx="18" fill="#fff"/>
+      <path d="M0 34h108" stroke="#e2daf5" stroke-width="2"/>
+      <path d="M28-7v20M80-7v20" stroke="#807194" stroke-width="7" stroke-linecap="round"/>
+      <path d="m31 73 16 16 31-35" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="coin-motif" transform="translate(1101 310)">
+      <ellipse rx="35" ry="40" fill="#e1c58a"/>
+      <ellipse cx="-5" rx="32" ry="40" fill="#f8e6b4" stroke="#c49f58" stroke-width="2"/>
+      <ellipse cx="-5" rx="24" ry="31" fill="none" stroke="#c49f58" stroke-width="1.5"/>
+      <path d="m-14 0 7 8 14-17" fill="none" stroke="#9a793e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="generated-subject">
+      <image href="hero-subject.png" x="784" y="42" width="348" height="402" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+  </g>
+</svg>

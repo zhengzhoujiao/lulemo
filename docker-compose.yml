@@ -1,0 +1,59 @@
+# =============================================================================
+# 噜了么（lulemo）子项目编排文件
+#
+# 生产模式：加入共享网络 bolt_net，主站 nginx 通过容器名 lulemo-backend:8000 访问。
+#   启动前请确保 COWebsite/docker-compose.yml 已先启动（bolt_net 网络由其创建）。
+#
+# 前端静态文件由 COWebsite/docker-compose.yml 的 nginx 直接挂载，无需在此构建：
+#   cd lulemo/web && npm run build   # 产物自动挂载至 /var/www/luleme/
+#
+# 独立调试：将 lulemo-backend 的 expose 改为 ports: ["127.0.0.1:8000:8000"]，
+#   并临时移除 networks 配置中的 bolt_net 段即可。
+# =============================================================================
+
+name: lulemo
+
+services:
+
+  # --- 数据库 ---
+  lulemo-mongo:
+    image: mongo:7
+    container_name: lulemo-mongo
+    restart: unless-stopped
+    volumes:
+      - lulemo-mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # --- 后端（仅内网暴露，由主站 nginx 代理）---
+  lulemo-backend:
+    build:
+      context: ./serve
+      dockerfile: Dockerfile
+    container_name: lulemo-backend
+    restart: unless-stopped
+    env_file:
+      - ./serve/.env
+    environment:
+      MONGODB_URL: mongodb://lulemo-mongo:27017
+    depends_on:
+      lulemo-mongo:
+        condition: service_healthy
+    expose:
+      - "8000"   # 仅对 bolt_net 内部可见，不映射到宿主机
+    networks:
+      - default
+      - bolt_net
+
+volumes:
+  lulemo-mongo-data:
+    driver: local
+
+networks:
+  bolt_net:
+    external: true   # 由 COWebsite/docker-compose.yml 负责创建
+    name: bolt_net
